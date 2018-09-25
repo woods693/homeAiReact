@@ -40,7 +40,9 @@ export default class App extends Component {
           }
 
           return(
-            <MainPage />
+            <div>
+              <MainPage />
+            </div>
           );
   }
 }

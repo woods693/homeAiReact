@@ -1,0 +1,26 @@
+.mainPage {
+  background-color: #002145;
+
+  height:100vh;
+  width: 100%;
+
+  padding: 0px;
+  margin: 0px;
+}
+
+.main-align{
+  display:table-cell;
+}
+
+.iconTypes{
+  height: 50px;
+  width: 50px;
+}
+
+.fadeLine{
+    display:block;
+    color: #002145;
+    border:none;
+    height:2px;
+    background: linear-gradient(to right, #002145, #fff 25%, #fff 50%, #fff, #002145)
+}
