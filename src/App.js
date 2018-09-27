@@ -5,8 +5,8 @@ import 'popper.js/dist/umd/popper';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap';
 
-import Splash from './splash/splash';
-import MainPage from './main/main';
+import Splash from './components/splash/splash';
+import MainPage from './containers/main/main';
 
 export default class App extends Component {
   constructor(props){
