@@ -11,7 +11,7 @@ export default function(state = [], action){
     case FETCH_DEVICES:
       //puts the payload data into the array, this adds on
       //never want to manipulate our state
-      return [ action.payload.data ];
+      return action.payload.data;
   }
   //console.log('Action Received', action);
   return state;

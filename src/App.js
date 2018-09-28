@@ -18,7 +18,7 @@ export default class App extends Component {
   }
 
   handleClick(){
-    console.log('ready')
+    //console.log('ready')
     this.setState({
       ready: true,
     });
