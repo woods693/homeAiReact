@@ -24,3 +24,12 @@
     height:2px;
     background: linear-gradient(to right, #002145, #fff 25%, #fff 50%, #fff, #002145)
 }
+
+.floors{
+    padding: 5px;
+}
+
+.deviceButton{
+  padding: 3px;
+  margin: 2px;
+}

@@ -7,31 +7,57 @@ class MainPage extends Component{
   constructor(props){
   super(props);
   this.state={
-
+    category_devices: this.props.devices,
   };
-}
 
-  selectType = () => {
-      //requires API go access the devices of this type
-      //should also add a class to make the div greyer after selection
-      //console.log('selected device type');
-      console.log(this.props.devices);
-  }
+};
+
+  selectType = (event) => {
+      //console.log('Before', this.state.category_devices);
+      const target = event.target.getAttribute('data-key');
+      const all = this.props.devices;
+
+      const result = all.filter(each => each.parent_id == target);
+      this.setState({
+        category_devices: result
+      });
+  };
+
+  createFloors = () => {
+    let all = [];
+    //console.log(this.props.floors)
+    this.props.floors.forEach(function(each){
+      all.push(
+        <button type="button"
+        className="btn btn-outline-light"
+        key={each.id}>
+          {each.name}
+        </button>
+      )
+    });
+    return all
+  };
 
   createTypes = () => {
     let all = [];
 
     for (let i = 1; i < 6; i++){
       all.push(
-        <img className={`icon${i} iconTypes`}
-        key={`type${i}`}
-        onClick={() => this.selectType()}
-        src={`../../public/images/type${i}.png`}/>
+        <button
+          type="button"
+          className="btn btn-outline-light deviceButton"
+          aria-pressed="true"
+          key={`type${i}`}
+          data-key={`${i}`}
+          onClick={this.selectType.bind(this)}>
+            <img className={`icon${i} iconTypes`}
+            src={`../../public/images/type${i}.png`}/>
+        </button>
+
       )
     }
-    //console.log(all);
     return all
-  }
+  };
 
   render() {
     const imageAddr = '../../public/images/type5.png'
@@ -41,6 +67,9 @@ class MainPage extends Component{
           <div className='text-center'>
               {this.createTypes()}
               <span className='fadeLine'/>
+              <ul className='floors'>
+                {this.createFloors()}
+              </ul>
           </div>
         </div>
       </div>
@@ -49,7 +78,7 @@ class MainPage extends Component{
 };
 
 function mapStateToProps(state) {
-  return { devices: state.devices}
+  return { devices: state.devices, floors: state.floors}
 }
 
 export default connect(mapStateToProps)(MainPage);

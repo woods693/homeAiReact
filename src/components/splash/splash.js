@@ -4,6 +4,7 @@ import styles from './splash.css';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchDevices } from '../../actions/index.js'
+import { fetchFloors } from '../../actions/index.js'
 
 class Splash extends Component {
 constructor(props){
@@ -12,6 +13,7 @@ constructor(props){
 
   }
   this.props.fetchDevices();
+  this.props.fetchFloors();
 }
   render () {
     return (
@@ -26,7 +28,7 @@ constructor(props){
 
 function mapDispatchToProps(dispatch) {
   //makes sure action flows into middleware and then into reducers
-  return bindActionCreators({ fetchDevices }, dispatch);
+  return bindActionCreators({ fetchDevices, fetchFloors }, dispatch);
 }
 
 export default connect(null, mapDispatchToProps)(Splash);
