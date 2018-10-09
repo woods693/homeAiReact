@@ -3,13 +3,15 @@ import { connect } from 'react-redux'
 
 import styles from './main.css';
 
+import Devices from '../../components/devices/devices.js';
+
 class MainPage extends Component{
   constructor(props){
   super(props);
   this.state={
     category_devices: this.props.devices,
+    selected_floor: "../../public/images/floors/floor1_big.png",
   };
-
 };
 
   selectType = (event) => {
@@ -23,18 +25,28 @@ class MainPage extends Component{
       });
   };
 
+  switchFloors(floor){
+    const selected = `../../public/images/floors/floor${floor}_big.png`;
+    this.setState({
+      selected_floor: selected,
+    })
+  };
+
   createFloors = () => {
     let all = [];
     //console.log(this.props.floors)
     this.props.floors.forEach(function(each){
+      //console.log(each);
       all.push(
         <button type="button"
-        className="btn btn-outline-light"
-        key={each.id}>
-          {each.name}
+          className="btn btn-outline-light"
+          aria-pressed="true"
+          key={each.id}
+          onClick={() => this.switchFloors(each.id)}>
+        {each.name}
         </button>
       )
-    });
+    }.bind(this));
     return all
   };
 
@@ -60,16 +72,20 @@ class MainPage extends Component{
   };
 
   render() {
-    const imageAddr = '../../public/images/type5.png'
+    const imageAddr = '../../public/images/type5.png';
     return(
       <div className='container-table mainPage'>
-        <div className='row main-align'>
+        <div className='iconBar row main-align'>
           <div className='text-center'>
               {this.createTypes()}
               <span className='fadeLine'/>
               <ul className='floors'>
                 {this.createFloors()}
               </ul>
+          </div>
+          <div className='deviceBar'>
+            <img src={this.state.selected_floor}/>
+            <Devices devices={this.state.category_devices}/>
           </div>
         </div>
       </div>

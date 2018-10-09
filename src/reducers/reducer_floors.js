@@ -12,6 +12,7 @@ export default function(state = [], action){
       //puts the payload data into the array, this adds on
       //never want to manipulate our state
       //console.log(action.payload.data)
+      //console.log(action.payload.data);
       return action.payload.data;
   }
   //console.log('Action Received', action);

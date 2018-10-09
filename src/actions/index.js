@@ -31,7 +31,7 @@ export function fetchDevices() {
 
 export function fetchFloors() {
   //devices
-  const API_URL = 'https://obscure-plateau-31248.herokuapp.com/api/floors';
+  const API_URL = 'https://obscure-plateau-31248.herokuapp.com/api/floorsfast';
 
   //returns a promise
   const request = axios.get(API_URL);
