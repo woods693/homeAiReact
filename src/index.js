@@ -5,8 +5,8 @@ import { createStore, applyMiddleware } from 'redux';
 import promiseMiddleware from 'redux-promise';
 
 // main app
-import App from './src/App';
-import reducers from './src/reducers';
+import App from './App.js';
+import reducers from './reducers';
 
 const createStoreWithMiddleware = applyMiddleware(promiseMiddleware)(createStore);
 
