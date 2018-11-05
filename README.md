@@ -1,5 +1,4 @@
 # homeAiReact
-
 #install node modules
 npm install
 

@@ -41,7 +41,7 @@ class MainPage extends Component{
     })
   };
 
-  createFloors = () => {
+  createFloors(){
     let all = [];
     //console.log(this.props.floors)
     this.props.floors.forEach(function(each){
@@ -59,7 +59,7 @@ class MainPage extends Component{
     return all
   };
 
-  createTypes = () => {
+  createTypes(){
     let all = [];
     //console.log(this.props.devices)
     //should change this but 6 device types so it works
