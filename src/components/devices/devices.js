@@ -6,7 +6,7 @@ export default class Devices extends Component {
   constructor(props){
     super(props);
     this.state={
-      all_devices: this.props.devices
+      //all_devices: this.props.devices
     }
     this.logger = this.logger.bind(this);
     this.displayDevices = this.displayDevices.bind(this);
@@ -20,7 +20,7 @@ export default class Devices extends Component {
   flipper(status, index){
    //console.log(status);
    //console.log(index);
-   var copy = this.state.all_devices;
+   var copy = this.props.devices;
     if (status == 'on'){
       copy[index].Status_Name = 'off';
     }else{
@@ -37,7 +37,7 @@ export default class Devices extends Component {
     //dont have Motion Detector, Combination Switch, Combination Outlet, Combination Speaker
     let allDevices = []
     //should set a variable instead
-    this.state.all_devices.forEach(function(each, index){
+    this.props.devices.forEach(function(each, index){
       var left = ('' + each.X) + 'px';
       var top = ('' + each.Y) + 'px';
       //console.log(this.props.floor)

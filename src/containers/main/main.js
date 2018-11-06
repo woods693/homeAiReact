@@ -27,6 +27,7 @@ class MainPage extends Component{
       }else{
         result = all.filter(each => each.parent_id == target);
       }
+      console.log(result);
       this.setState({
         category_devices: result
       });
